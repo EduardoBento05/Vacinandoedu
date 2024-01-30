@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "454658692530",
+    "firebase_url": "https://vacinandoedu-default-rtdb.firebaseio.com",
+    "project_id": "vacinandoedu",
+    "storage_bucket": "vacinandoedu.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:454658692530:android:6843b4755ad9ee9b0bc0ab",
+        "android_client_info": {
+          "package_name": "com.example.vacinandoedu_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "454658692530-4ravuugsqcs83v2qc9mco07ln1s429qq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqBONCtkkSmlZvWf-Xf9P2PcXeHY_zgWk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "454658692530-4ravuugsqcs83v2qc9mco07ln1s429qq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
