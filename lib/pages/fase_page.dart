@@ -29,6 +29,9 @@ class FasePage extends StatelessWidget {
             color: Colors.black,
           ),
         ),
+        actions: [
+          IconButton(onPressed: () => {}, icon: Icon(Icons.more_vert_outlined))
+        ],
       ),
       body: Container(
         decoration: const BoxDecoration(

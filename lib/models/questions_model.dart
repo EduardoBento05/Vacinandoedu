@@ -32,14 +32,14 @@ class Question {
   factory Question.fromMap(Map<String, dynamic> map) {
     Map<String, bool> options = {};
 
-    String optionsString =
-        map['options'].substring(1); // Remover o primeiro caractere "{"
+    String optionsString = map['options'].substring(
+        1, map['options'].length - 1); // Remover os caracteres "{" e "}"
 
     List<String> pairs = optionsString.split(', ');
     for (String pair in pairs) {
       List<String> keyValue = pair.split('=');
       String key = keyValue[0].trim();
-      bool value = (keyValue[1].trim().toLowerCase() == 'true');
+      bool value = keyValue[1].trim().toLowerCase() == 'true';
       options[key] = value;
     }
 

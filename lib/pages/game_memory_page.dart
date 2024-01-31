@@ -68,11 +68,14 @@ class _GamePageState extends State<GamePage> {
               return Scaffold(
                 backgroundColor: background,
                 appBar: AppBar(
-                  backgroundColor: background,
-                  shadowColor: Colors.transparent,
-                  centerTitle: true,
-                  title: Text("Nivel ${widget.nivel}/Fase - ${widget.fase}"),
-                ),
+                    backgroundColor: shadorcolortopbar,
+                    centerTitle: true,
+                    title: Text("Nivel ${widget.nivel}/Fase - ${widget.fase}"),
+                    actions: [
+                      IconButton(
+                          onPressed: () => {},
+                          icon: Icon(Icons.more_vert_outlined))
+                    ]),
                 body: SafeArea(
                   child: Center(
                     child: GridView.builder(

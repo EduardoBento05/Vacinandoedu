@@ -19,7 +19,7 @@ final appTheme = ThemeData(
         borderRadius: BorderRadius.circular(8),
       ),
       textStyle: textStyle.copyWith(
-        fontSize: 50,
+        fontSize: 20,
       ),
     ),
   ),
@@ -27,6 +27,6 @@ final appTheme = ThemeData(
 
 final textStyle = TextStyle(
   fontFamily: GoogleFonts.bubblegumSans().fontFamily,
-  fontSize: 40,
+  fontSize: 20,
   color: Colors.white,
 );

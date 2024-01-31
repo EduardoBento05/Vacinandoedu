@@ -3,7 +3,6 @@ import 'package:sqflite/sqflite.dart';
 
 //import 'package:vacinandoedu_app/database/db_connect.dart';
 import '../constants.dart';
-
 import '../database/db.dart';
 import '../models/questions_model.dart';
 import '../widgets/bottom_navigationbar_widget.dart';
@@ -206,33 +205,6 @@ class _QuestionPageState extends State<QuestionPage> {
               ),
               floatingActionButtonLocation:
                   FloatingActionButtonLocation.centerFloat,
-              bottomNavigationBar: BottomNavigationWidget(
-                buttons: [
-                  IconButton(
-                    onPressed: () => Navigator.pushAndRemoveUntil(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => InitialPage(),
-                      ),
-                      (route) => false,
-                    ),
-                    icon: Icon(Icons.home),
-                  ),
-                  IconButton(
-                    onPressed: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ConfigurationPage(),
-                      ),
-                    ),
-                    icon: Icon(Icons.settings),
-                  ),
-                  IconButton(
-                    onPressed: () => null,
-                    icon: Icon(Icons.audiotrack),
-                  ),
-                ],
-              ),
             );
           }
         } else {

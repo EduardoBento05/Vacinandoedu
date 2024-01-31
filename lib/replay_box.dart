@@ -41,7 +41,11 @@ class ReplayBox extends StatelessWidget {
                   pageBuilder: (_, __, ___) => GamePage(nivel, fase),
                 ),
                 (route) => false),
-            child: Text("Recomeçar"),
+            child: Text(
+              "Recomeçar",
+              textAlign: TextAlign.center,
+              textScaler: TextScaler.noScaling,
+            ),
           ),
         ),
         Container(

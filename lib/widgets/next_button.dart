@@ -9,7 +9,7 @@ class NextButton extends StatelessWidget {
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
-        color: neutral,
+        color: amarelo,
         borderRadius: BorderRadius.circular(10.0),
       ),
       padding: const EdgeInsets.symmetric(vertical: 10.0),
