@@ -1,3 +1,4 @@
+import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/material.dart';
 import 'package:vacinandoedu_app/models/audio_manager.dart';
 import 'package:vacinandoedu_app/models/word.dart';
@@ -7,7 +8,9 @@ class GameManager extends ChangeNotifier {
   bool canFlip = false,
       reverseFlip = false,
       ignoreTaps = false,
+      isMusicPlaying = false,
       roundedCompleted = false;
+
   List<int> answeredWords = [];
 
   // Adicionada variável currentFase
@@ -78,6 +81,7 @@ class GameManager extends ChangeNotifier {
   }
 
   void resetGame() {
+    stopBackgroundMusic();
     tappedWords.clear();
     canFlip = false;
     reverseFlip = false;
@@ -92,5 +96,25 @@ class GameManager extends ChangeNotifier {
 
   void setFase(int fase) {
     currentFase = fase;
+  }
+
+  void reset() {
+    stopBackgroundMusic();
+  }
+
+  void stopBackgroundMusic() {
+    if (isMusicPlaying) {
+      isMusicPlaying = false;
+      FlameAudio.bgm.stop();
+    }
+  }
+
+  void startBackgroundMusic() {
+    if (!isMusicPlaying) {
+      isMusicPlaying = true;
+      if (!FlameAudio.bgm.isPlaying) {
+        FlameAudio.bgm.play('backgroundsounds.wav');
+      }
+    }
   }
 }

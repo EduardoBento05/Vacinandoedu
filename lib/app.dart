@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:vacinandoedu_app/pages/auth_page.dart';
@@ -31,6 +32,14 @@ class App extends StatelessWidget {
               return const SplashPage();
             }
             if (snapshot.hasData) {
+              final gameManager = Provider.of<GameManager>(context);
+
+              if (gameManager.isMusicPlaying) {
+                FlameAudio.bgm.stop();
+              }
+              gameManager
+                  .reset(); // Reinicia antes de começar a música novamente
+              gameManager.startBackgroundMusic();
               return const InitialPage();
             }
             return const AuthPage();
