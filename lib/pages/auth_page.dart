@@ -29,7 +29,10 @@ class _AuthPageState extends State<AuthPage> {
     final isValid = _formKey.currentState!.validate();
 
     if (!isValid || !_isLogin && _selectedImage == null) {
-      //...
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content:
+            Text('Por favor, preencha todos os campos e selecione uma imagem '),
+      ));
       return;
     }
 
@@ -67,7 +70,14 @@ class _AuthPageState extends State<AuthPage> {
       }
     } on FirebaseAuthException catch (error) {
       if (error.code == 'Email Existente') {
-        //...
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text('Este e-mail já está em uso.'),
+        ));
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text(
+              'Falha na autenticação: ${error.message ?? 'Erro desconhecido'}'),
+        ));
       }
       ScaffoldMessenger.of(context).clearSnackBars();
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
@@ -82,7 +92,7 @@ class _AuthPageState extends State<AuthPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: background,
+      backgroundColor: blueEnd,
       body: Center(
         child: SingleChildScrollView(
           child: Column(
@@ -96,7 +106,7 @@ class _AuthPageState extends State<AuthPage> {
                   right: 20,
                 ),
                 width: 200,
-                child: Image.asset('assets/images/logo4.png'),
+                child: Image.asset('assets/images/logo5.png'),
               ),
               Card(
                 margin: const EdgeInsets.all(20),

@@ -31,13 +31,23 @@ class _ConfigurationPageState extends State<ConfigurationPage> {
     return Scaffold(
       backgroundColor: background,
       appBar: AppBar(
-        backgroundColor: background,
-        shadowColor: Colors.transparent,
+        backgroundColor: grayHighlight,
+        shadowColor: Colors.grey[400],
         centerTitle: true,
         title: const Text('Configurações'),
       ),
       endDrawer: Drawer(
         child: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topRight,
+              end: Alignment.bottomLeft,
+              colors: [
+                blueStart,
+                purpleEnd,
+              ],
+            ),
+          ),
           child: ListView(
             children: [
               DrawerHeader(
@@ -73,6 +83,16 @@ class _ConfigurationPageState extends State<ConfigurationPage> {
         ),
       ),
       body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+            colors: [
+              blueStart,
+              purpleEnd,
+            ],
+          ),
+        ),
         padding: EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

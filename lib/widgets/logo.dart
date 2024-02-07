@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vacinandoedu_app/constants.dart';
 
 class Logo extends StatelessWidget {
   const Logo({Key? key}) : super(key: key);
@@ -10,7 +11,7 @@ class Logo extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(bottom: 20),
           child: Image.asset(
-            'assets/images/logo3.png',
+            'assets/images/logo5.png',
             width: 100,
             height: 125,
           ),
@@ -25,7 +26,7 @@ class Logo extends StatelessWidget {
                 children: const [
                   TextSpan(
                     text: ' um Jogo educacional',
-                    style: TextStyle(color: Colors.amber),
+                    style: TextStyle(color: correct),
                   )
                 ]),
           ),

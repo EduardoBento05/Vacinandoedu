@@ -5,6 +5,8 @@ import 'package:vacinandoedu_app/main.dart';
 import 'package:vacinandoedu_app/models/game_manager.dart';
 import 'package:vacinandoedu_app/models/nivel.dart';
 import 'package:vacinandoedu_app/models/word_tile.dart';
+import 'package:vacinandoedu_app/pages/configuration_page.dart';
+import 'package:vacinandoedu_app/pages/initial_page.dart';
 import 'package:vacinandoedu_app/replay_box.dart';
 
 import '../models/word.dart';
@@ -66,34 +68,101 @@ class _GamePageState extends State<GamePage> {
               });
 
               return Scaffold(
-                backgroundColor: background,
                 appBar: AppBar(
-                    backgroundColor: shadorcolortopbar,
-                    centerTitle: true,
-                    title: Text("Nivel ${widget.nivel}/Fase - ${widget.fase}"),
-                    actions: [
-                      IconButton(
-                          onPressed: () => {},
-                          icon: Icon(Icons.more_vert_outlined))
-                    ]),
-                body: SafeArea(
-                  child: Center(
-                    child: GridView.builder(
-                      shrinkWrap: true,
-                      padding: EdgeInsets.only(
-                        left: widthPadding,
-                        right: widthPadding,
+                  backgroundColor: grayHighlight,
+                  shadowColor: Colors.grey[400],
+                  centerTitle: true,
+                  title: Text("Nivel ${widget.nivel}/Fase - ${widget.fase}"),
+                ),
+                endDrawer: Drawer(
+                  child: Container(
+                    decoration: const BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topRight,
+                        end: Alignment.bottomLeft,
+                        colors: [
+                          blueStart,
+                          purpleEnd,
+                        ],
                       ),
-                      itemCount: _gridWords.length,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                        crossAxisSpacing: 10,
-                        mainAxisSpacing: 10,
-                        childAspectRatio: 1.5,
-                      ),
-                      itemBuilder: (context, index) => WordTile(
-                        index: index,
-                        word: _gridWords[index],
+                    ),
+                    child: ListView(
+                      children: [
+                        DrawerHeader(
+                          decoration: BoxDecoration(
+                            color: Colors.blue,
+                          ),
+                          child: Text(
+                            'Níveis',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 24,
+                            ),
+                          ),
+                        ),
+                        ListTile(
+                          title: Text('Home'),
+                          leading: Icon(Icons.home),
+                          onTap: () {
+                            Navigator.pushAndRemoveUntil(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => InitialPage(),
+                              ),
+                              (route) => false,
+                            );
+                          },
+                        ),
+                        ListTile(
+                          title: Text('Configurations'),
+                          leading: Icon(Icons.settings),
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ConfigurationPage()),
+                            );
+                          },
+                        ),
+                        ListTile(
+                          title: Text('Sound'),
+                          leading: Icon(Icons.audiotrack),
+                          onTap: () {},
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                body: Container(
+                  decoration: const BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topRight,
+                      end: Alignment.bottomLeft,
+                      colors: [
+                        blueStart,
+                        purpleEnd,
+                      ],
+                    ),
+                  ),
+                  child: SafeArea(
+                    child: Center(
+                      child: GridView.builder(
+                        shrinkWrap: true,
+                        padding: EdgeInsets.only(
+                          left: widthPadding,
+                          right: widthPadding,
+                        ),
+                        itemCount: _gridWords.length,
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          crossAxisSpacing: 10,
+                          mainAxisSpacing: 10,
+                          childAspectRatio: 1.5,
+                        ),
+                        itemBuilder: (context, index) => WordTile(
+                          index: index,
+                          word: _gridWords[index],
+                        ),
                       ),
                     ),
                   ),

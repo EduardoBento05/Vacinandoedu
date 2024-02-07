@@ -19,6 +19,9 @@ class App extends StatelessWidget {
         ChangeNotifierProvider<GameManager>(
           create: (_) => GameManager(),
         ),
+        Provider<FirebaseAuth>(
+          create: (_) => FirebaseAuth.instance,
+        ),
         // Outros provedores, se necessário
       ],
       child: MaterialApp(

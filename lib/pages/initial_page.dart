@@ -16,10 +16,9 @@ class InitialPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: background,
       appBar: AppBar(
-        backgroundColor: background,
-        shadowColor: Colors.transparent,
+        backgroundColor: grayHighlight,
+        shadowColor: Colors.grey[400],
         centerTitle: true,
         title: const Text(
           "VacinandoEdu",
@@ -36,8 +35,8 @@ class InitialPage extends StatelessWidget {
             begin: Alignment.topRight,
             end: Alignment.bottomLeft,
             colors: [
-              Color.fromARGB(255, 173, 0, 203),
-              Color.fromARGB(255, 227, 112, 248),
+              blueStart,
+              purpleEnd,
             ],
           ),
         ),

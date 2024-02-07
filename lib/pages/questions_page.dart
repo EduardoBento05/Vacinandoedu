@@ -128,10 +128,9 @@ class _QuestionPageState extends State<QuestionPage> {
           } else if (snapshot.hasData) {
             var extractedData = snapshot.data as List<Question>;
             return Scaffold(
-              backgroundColor: background,
               appBar: AppBar(
-                backgroundColor: background,
-                shadowColor: Colors.transparent,
+                backgroundColor: grayHighlight,
+                shadowColor: Colors.grey[400],
                 centerTitle: true,
                 title: Text(
                   "Fase - " + widget.fase.toString(),
@@ -145,11 +144,70 @@ class _QuestionPageState extends State<QuestionPage> {
                   Padding(
                     padding: const EdgeInsets.all(18.0),
                     child: Text(
-                      "Score: $score",
+                      "Pontos: $score",
                       style: TextStyle(fontSize: 18.0, color: Colors.black),
                     ),
                   )
                 ],
+              ),
+              drawer: Container(
+                decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topRight,
+                    end: Alignment.bottomLeft,
+                    colors: [
+                      blueStart,
+                      purpleEnd,
+                    ],
+                  ),
+                ),
+                child: Drawer(
+                  child: ListView(
+                    children: [
+                      DrawerHeader(
+                        decoration: BoxDecoration(
+                          color: Colors.blue,
+                        ),
+                        child: Text(
+                          'Níveis',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 24,
+                          ),
+                        ),
+                      ),
+                      ListTile(
+                        title: Text('Home'),
+                        leading: Icon(Icons.home),
+                        onTap: () {
+                          Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => InitialPage(),
+                            ),
+                            (route) => false,
+                          );
+                        },
+                      ),
+                      ListTile(
+                        title: Text('Configurations'),
+                        leading: Icon(Icons.settings),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ConfigurationPage()),
+                          );
+                        },
+                      ),
+                      ListTile(
+                        title: Text('Sound'),
+                        leading: Icon(Icons.audiotrack),
+                        onTap: () {},
+                      ),
+                    ],
+                  ),
+                ),
               ),
               body: Container(
                 decoration: const BoxDecoration(
@@ -157,8 +215,8 @@ class _QuestionPageState extends State<QuestionPage> {
                   begin: Alignment.topRight,
                   end: Alignment.bottomLeft,
                   colors: [
-                    Color.fromARGB(255, 173, 0, 203),
-                    Color.fromARGB(255, 227, 112, 248),
+                    blueStart,
+                    purpleEnd,
                   ],
                 )),
                 width: double.infinity,

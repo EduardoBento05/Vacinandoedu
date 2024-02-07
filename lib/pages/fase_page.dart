@@ -7,6 +7,11 @@ import './questions_page.dart'; // Corrigido o nome do arquivo
 import '../widgets/start_button.dart';
 import 'chat_page.dart';
 
+// Função para gerar emojis repetidos
+String repeatEmojis(String emoji, int count) {
+  return List.generate(count, (_) => emoji).join('');
+}
+
 class FasePage extends StatelessWidget {
   final int nivel;
   final String titulo;
@@ -16,10 +21,9 @@ class FasePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: background,
       appBar: AppBar(
-        backgroundColor: background,
-        shadowColor: Colors.transparent,
+        backgroundColor: grayHighlight,
+        shadowColor: Colors.grey[400],
         centerTitle: true,
         title: Text(
           "$titulo",
@@ -29,9 +33,6 @@ class FasePage extends StatelessWidget {
             color: Colors.black,
           ),
         ),
-        actions: [
-          IconButton(onPressed: () => {}, icon: Icon(Icons.more_vert_outlined))
-        ],
       ),
       body: Container(
         decoration: const BoxDecoration(
@@ -39,8 +40,8 @@ class FasePage extends StatelessWidget {
             begin: Alignment.topRight,
             end: Alignment.bottomLeft,
             colors: [
-              Color.fromARGB(255, 173, 0, 203),
-              Color.fromARGB(255, 227, 112, 248),
+              blueStart,
+              purpleEnd,
             ],
           ),
         ),
@@ -56,8 +57,9 @@ class FasePage extends StatelessWidget {
                 itemBuilder: (context, index) {
                   final fase = index + 1;
                   final faseTitle = "Fase $fase - ";
+                  final emojis = repeatEmojis(' 💉', fase);
                   return StartButton(
-                      title: faseTitle,
+                      title: faseTitle + emojis,
                       color: Colors.white,
                       function: () => Navigator.push(
                           context,

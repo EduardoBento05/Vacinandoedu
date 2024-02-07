@@ -13,7 +13,7 @@ class ResultBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      backgroundColor: background,
+      backgroundColor: blueEnd,
       content: Padding(
         padding: const EdgeInsets.all(70.0),
         child: Column(
@@ -55,10 +55,25 @@ class ResultBox extends StatelessWidget {
             ),
             GestureDetector(
               onTap: onPressed,
-              child: const Text(
-                "Recomeçar",
-                style: TextStyle(
-                    color: Colors.yellow, fontSize: 20.0, letterSpacing: 1.0),
+              child: const Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.refresh,
+                    color: Colors.yellow,
+                    size: 20.0,
+                  ),
+                  SizedBox(
+                      width: 5.0), // Adicione um espaço entre o ícone e o texto
+                  Text(
+                    "Recomeçar",
+                    style: TextStyle(
+                      color: Colors.yellow,
+                      fontSize: 20.0,
+                      letterSpacing: 1.0,
+                    ),
+                  ),
+                ],
               ),
             ),
           ],

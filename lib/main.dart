@@ -30,7 +30,7 @@ Future main() async {
     ]),
     builder: (context, snapshot) {
       if (snapshot.hasError) {
-        return const Material(
+        return Material(
           child: Center(
             child: Text(
               "Erro: Que Pena",
