@@ -57,17 +57,6 @@ class InitialPage extends StatelessWidget {
                     )),
               ),
               StartButton(
-                title: 'Configurações',
-                color: Colors.white,
-                function: () => {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const ConfigurationPage(),
-                      )),
-                },
-              ),
-              StartButton(
                 title: 'Sair',
                 color: Colors.white,
                 function: () => FirebaseAuth.instance.signOut(),

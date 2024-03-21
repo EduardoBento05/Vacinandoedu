@@ -34,7 +34,7 @@ class _ChatPageState extends State<ChatPage> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: background,
+        backgroundColor: grayHighlight,
         title: const Text('Dúvidas'),
         centerTitle: true,
         actions: [
@@ -50,8 +50,8 @@ class _ChatPageState extends State<ChatPage> {
             begin: Alignment.topRight,
             end: Alignment.bottomLeft,
             colors: [
-              Color.fromARGB(255, 173, 0, 203),
-              Color.fromARGB(255, 227, 112, 248),
+              blueEnd,
+              purpleEnd,
             ],
           ),
         ),

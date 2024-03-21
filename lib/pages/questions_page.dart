@@ -5,12 +5,10 @@ import 'package:sqflite/sqflite.dart';
 import '../constants.dart';
 import '../database/db.dart';
 import '../models/questions_model.dart';
-import '../widgets/bottom_navigationbar_widget.dart';
 import '../widgets/next_button.dart';
 import '../widgets/options_card.dart';
 import '../widgets/questions_widget.dart';
 import '../widgets/result_box.dart';
-import 'configuration_page.dart';
 import 'initial_page.dart';
 
 class QuestionPage extends StatefulWidget {
@@ -53,8 +51,9 @@ class _QuestionPageState extends State<QuestionPage> {
 
   @override
   void initState() {
-    _questions = getData();
     super.initState();
+
+    _questions = getData();
   }
 
   int index = 0;
@@ -71,6 +70,8 @@ class _QuestionPageState extends State<QuestionPage> {
           result: score,
           questionLenght: questionLenght,
           onPressed: startOver,
+          nivel: widget.nivel,
+          fase: widget.fase,
         ),
       );
     } else {
@@ -150,18 +151,18 @@ class _QuestionPageState extends State<QuestionPage> {
                   )
                 ],
               ),
-              drawer: Container(
-                decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topRight,
-                    end: Alignment.bottomLeft,
-                    colors: [
-                      blueStart,
-                      purpleEnd,
-                    ],
+              drawer: Drawer(
+                child: Container(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topRight,
+                      end: Alignment.bottomLeft,
+                      colors: [
+                        blueStart,
+                        purpleEnd,
+                      ],
+                    ),
                   ),
-                ),
-                child: Drawer(
                   child: ListView(
                     children: [
                       DrawerHeader(
@@ -177,7 +178,7 @@ class _QuestionPageState extends State<QuestionPage> {
                         ),
                       ),
                       ListTile(
-                        title: Text('Home'),
+                        title: Text('Pagina Inicial '),
                         leading: Icon(Icons.home),
                         onTap: () {
                           Navigator.pushAndRemoveUntil(
@@ -189,28 +190,12 @@ class _QuestionPageState extends State<QuestionPage> {
                           );
                         },
                       ),
-                      ListTile(
-                        title: Text('Configurations'),
-                        leading: Icon(Icons.settings),
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => ConfigurationPage()),
-                          );
-                        },
-                      ),
-                      ListTile(
-                        title: Text('Sound'),
-                        leading: Icon(Icons.audiotrack),
-                        onTap: () {},
-                      ),
                     ],
                   ),
                 ),
               ),
               body: Container(
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                     gradient: LinearGradient(
                   begin: Alignment.topRight,
                   end: Alignment.bottomLeft,

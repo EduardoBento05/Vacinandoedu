@@ -53,7 +53,7 @@ class FasePage extends StatelessWidget {
               alignment: Alignment.center,
               child: ListView.builder(
                 shrinkWrap: true,
-                itemCount: 3,
+                itemCount: 2,
                 itemBuilder: (context, index) {
                   final fase = index + 1;
                   final faseTitle = "Fase $fase - ";

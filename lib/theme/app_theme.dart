@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+final textStyle = TextStyle(
+  fontFamily: GoogleFonts.bubblegumSans().fontFamily,
+  fontSize: 30,
+  color: Colors.white,
+);
+
 final appTheme = ThemeData(
   textTheme: TextTheme(
     bodyText2: textStyle,
@@ -23,10 +29,4 @@ final appTheme = ThemeData(
       ),
     ),
   ),
-);
-
-final textStyle = TextStyle(
-  fontFamily: GoogleFonts.bubblegumSans().fontFamily,
-  fontSize: 20,
-  color: Colors.white,
 );

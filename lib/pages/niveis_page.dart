@@ -31,21 +31,15 @@ class _NiveisPageState extends State<NiveisPage> {
   static List<Nivel> niveis = [
     Nivel(
       numero: 1,
-      title: "Nível - 1: A História da Vacina",
+      title: "Nível - 1: Importância da Vacina",
       color: Colors.white,
-      page: FasePage(1, "Nível - 1: A História da Vacina"),
+      page: FasePage(1, "Nível - 1: Importância da Vacina"),
     ),
     Nivel(
       numero: 2,
-      title: "Nível - 2: Importância da Vacina",
+      title: "Nível - 2: Profissionais da Vacina",
       color: Colors.white,
-      page: FasePage(2, "Nível - 2: Importância da Vacina"),
-    ),
-    Nivel(
-      numero: 3,
-      title: "Nível - 3: Profissionais da Vacina",
-      color: Colors.white,
-      page: FasePage(3, "Nível - 3: Profissionais da Vacina"),
+      page: FasePage(2, "Nível - 2: Profissionais da Vacina"),
     ),
   ];
 
@@ -94,7 +88,7 @@ class _NiveisPageState extends State<NiveisPage> {
                 ),
               ),
               ListTile(
-                title: Text('Home'),
+                title: Text('Pagina Inicial'),
                 leading: Icon(Icons.home),
                 onTap: () {
                   Navigator.pushAndRemoveUntil(
@@ -105,22 +99,6 @@ class _NiveisPageState extends State<NiveisPage> {
                     (route) => false,
                   );
                 },
-              ),
-              ListTile(
-                title: Text('Configurations'),
-                leading: Icon(Icons.settings),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => ConfigurationPage()),
-                  );
-                },
-              ),
-              ListTile(
-                title: Text('Sound'),
-                leading: Icon(Icons.audiotrack),
-                onTap: () {},
               ),
             ],
           ),

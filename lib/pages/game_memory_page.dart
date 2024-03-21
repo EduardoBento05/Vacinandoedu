@@ -3,12 +3,9 @@ import 'package:provider/provider.dart';
 import 'package:vacinandoedu_app/constants.dart';
 import 'package:vacinandoedu_app/main.dart';
 import 'package:vacinandoedu_app/models/game_manager.dart';
-import 'package:vacinandoedu_app/models/nivel.dart';
 import 'package:vacinandoedu_app/models/word_tile.dart';
-import 'package:vacinandoedu_app/pages/configuration_page.dart';
 import 'package:vacinandoedu_app/pages/initial_page.dart';
 import 'package:vacinandoedu_app/replay_box.dart';
-
 import '../models/word.dart';
 
 class GamePage extends StatefulWidget {
@@ -30,7 +27,7 @@ class _GamePageState extends State<GamePage> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance?.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       Provider.of<GameManager>(context, listen: false).resetGame();
       GameManager gameManager =
           Provider.of<GameManager>(context, listen: false);
@@ -101,7 +98,7 @@ class _GamePageState extends State<GamePage> {
                           ),
                         ),
                         ListTile(
-                          title: Text('Home'),
+                          title: Text('Pagina Inicial'),
                           leading: Icon(Icons.home),
                           onTap: () {
                             Navigator.pushAndRemoveUntil(
@@ -112,22 +109,6 @@ class _GamePageState extends State<GamePage> {
                               (route) => false,
                             );
                           },
-                        ),
-                        ListTile(
-                          title: Text('Configurations'),
-                          leading: Icon(Icons.settings),
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => ConfigurationPage()),
-                            );
-                          },
-                        ),
-                        ListTile(
-                          title: Text('Sound'),
-                          leading: Icon(Icons.audiotrack),
-                          onTap: () {},
                         ),
                       ],
                     ),
@@ -188,9 +169,6 @@ class _GamePageState extends State<GamePage> {
         break;
       case 2:
         nivelWords = nivel2Words;
-        break;
-      case 3:
-        nivelWords = nivel3Words;
         break;
       default:
         throw Exception("Nível não reconhecido: ${widget.nivel}");

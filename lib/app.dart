@@ -37,12 +37,6 @@ class App extends StatelessWidget {
             if (snapshot.hasData) {
               final gameManager = Provider.of<GameManager>(context);
 
-              if (gameManager.isMusicPlaying) {
-                FlameAudio.bgm.stop();
-              }
-              gameManager
-                  .reset(); // Reinicia antes de começar a música novamente
-              gameManager.startBackgroundMusic();
               return const InitialPage();
             }
             return const AuthPage();

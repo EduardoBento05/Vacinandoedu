@@ -40,13 +40,28 @@ class DB {
       )
     ''');
 
-    await _incluirPerguntasnoBanco(db);
+    await incluirPerguntasnoBanco(db);
   }
 
-  _incluirPerguntasnoBanco(Database db) async {
+  incluirPerguntasnoBanco(Database db) async {
     List<Question> lista = PerguntasRepository().perguntas;
 
     for (Question pergunta in lista) {
+      await db.insert('questions', pergunta.toMap());
+    }
+  }
+
+  Future<void> updateQuestions() async {
+    Database db = await instance.database;
+
+    // Deleta todas as perguntas do banco de dados
+    await db.delete('questions');
+
+    // Obtém as perguntas atualizadas do repositório
+    List<Question> perguntas = PerguntasRepository().perguntas;
+
+    // Insere as perguntas atualizadas no banco de dados
+    for (Question pergunta in perguntas) {
       await db.insert('questions', pergunta.toMap());
     }
   }
