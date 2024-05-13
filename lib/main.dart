@@ -3,8 +3,8 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:vacinandoedu_app/firebase_options.dart';
-import 'package:vacinandoedu_app/models/word.dart';
-import 'package:vacinandoedu_app/pages/auth_page.dart';
+import 'package:vacinandoedu_app/screens/memory_game/pages/word.dart';
+import 'package:vacinandoedu_app/screens/auth/pages/auth_page.dart';
 
 import './app.dart';
 

@@ -1,9 +1,7 @@
 import 'package:sqflite/sqflite.dart';
-import 'package:sqflite/sqlite_api.dart';
 import 'package:path/path.dart';
-
-import '../models/questions_model.dart';
-import '../repositories/perguntas_repository.dart';
+import '../screens/question_game/pages/questions_model.dart';
+import '../screens/question_game/repositories/perguntas_repository.dart';
 
 class DB {
   // Construtor privado
