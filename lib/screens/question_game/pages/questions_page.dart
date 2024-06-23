@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:sqflite/sqflite.dart';
-//import 'package:vacinandoedu_app/database/db_connect.dart';
 import '../../../constants.dart';
 import '../../../database/db.dart';
 import 'questions_model.dart';
@@ -34,8 +33,8 @@ class _QuestionPageState extends State<QuestionPage> {
     List<Question> extractedData = [];
     for (Map<String, dynamic> row in result) {
       if (row.containsKey('id') &&
-          row.containsKey('level') &&
-          row.containsKey('stage') &&
+          row.containsKey('nivel') &&
+          row.containsKey('fase') &&
           row.containsKey('title') &&
           row.containsKey('options')) {
         Question pergunta = Question.fromMap(row);

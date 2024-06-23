@@ -5,7 +5,6 @@ import 'package:vacinandoedu_app/screens/auth/pages/auth_page.dart';
 import 'package:vacinandoedu_app/screens/home/pages/initial_page.dart';
 import 'package:vacinandoedu_app/screens/home/pages/splash_page.dart';
 import 'package:vacinandoedu_app/theme/app_theme.dart';
-
 import 'screens/memory_game/pages/game_manager.dart'; // Importe o provedor
 
 class App extends StatelessWidget {
